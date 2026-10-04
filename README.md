@@ -1,110 +1,42 @@
-# 🛒 Pre-Entrega TechLab - Gestión de Productos
+# Pre-Entrega TechLab - Gestión de Productos
 
-Herramienta de línea de comandos (CLI) desarrollada en **Node.js** para gestionar productos de una tienda en línea, consumiendo la API REST de [DummyJSON](https://dummyjson.com).
+Trabajo de pre-entrega para el curso **Backend Node.js** de TechLab.
 
-> **Nota:** La API oficial del curso (FakeStore) estaba caída (error 522/523) al momento del desarrollo, por lo que se utilizó **DummyJSON** como API alternativa. El cambio para volver a FakeStore es de 3 líneas en `index.js` (ver comentarios en el código).
+Herramienta de línea de comandos que permite gestionar productos de una tienda, consumiendo la API de [DummyJSON](https://dummyjson.com).
 
----
-
-## 📋 Descripción
-
-Este proyecto forma parte de la **Pre-Entrega del curso Backend Node.js** de TechLab. El programa interpreta comandos ingresados desde la terminal y ejecuta operaciones CRUD contra una API REST externa, devolviendo los resultados formateados en la consola.
+> **Nota:** La API original del curso (FakeStore) estaba caída (error 522/523) al momento del desarrollo, por lo que usé DummyJSON como alternativa. El código está preparado para volver a FakeStore cambiando 3 líneas comentadas en `index.js`.
 
 ---
 
-## 🚀 Instalación
+## 🚀 Cómo ejecutar
 
-1. **Clonar el repositorio:**
+Requiere Node.js v18 o superior (por el uso de `fetch` nativo).
 
-   ```bash
-   git clone <URL-DE-TU-REPO>
-   ```
-
-2. **Ingresar al directorio del proyecto:**
-
-   ```bash
-   cd pre-entrega-backend
-   ```
-
-3. **Instalar dependencias:**
-
-   ```bash
-   npm install
-   ```
-
-   > *Nota: este proyecto no requiere dependencias externas, por lo que `npm install` no instalará nada. Sin embargo, se incluye como buena práctica.*
-
-4. **Verificar que Node.js esté instalado** (se requiere v18 o superior, por el uso de `fetch` nativo):
-
-   ```bash
-   node -v
-   ```
-
-5. **Listo. Ya podés usar los comandos** de la sección [Uso](#-uso).
+```bash
+git clone https://github.com/arielg376/pre-entrega-backend.git
+cd pre-entrega-backend
+npm install
+```
 
 ---
 
 ## 🎮 Uso
 
-Ejecutá los comandos con `npm run start` seguido de la acción:
+| Comando | Acción |
+|---|---|
+| `npm run start GET products` | Lista todos los productos |
+| `npm run start GET products/<id>` | Muestra un producto específico |
+| `npm run start POST products <title> <price> <category>` | Crea un producto |
+| `npm run start DELETE products/<id>` | Elimina un producto |
+| `npm run start` | Muestra la ayuda |
 
-### 📦 Listar todos los productos
-
-```bash
-npm run start GET products
-```
-
-### 🔍 Consultar un producto específico
-
-```bash
-npm run start GET products/<productId>
-```
-
-**Ejemplo:**
+**Ejemplos:**
 
 ```bash
 npm run start GET products/15
-```
-
-### ➕ Crear un producto nuevo
-
-```bash
-npm run start POST products <title> <price> <category>
-```
-
-**Ejemplo:**
-
-```bash
 npm run start POST products T-Shirt-Rex 300 remeras
-```
-
-### ❌ Eliminar un producto
-
-```bash
-npm run start DELETE products/<productId>
-```
-
-**Ejemplo:**
-
-```bash
 npm run start DELETE products/7
 ```
-
-### ❓ Ver ayuda
-
-```bash
-npm run start
-```
-
----
-
-## 🛠️ Tecnologías utilizadas
-
-- **Node.js** — Entorno de ejecución de JavaScript del lado del servidor.
-- **ES Modules** — Sistema de módulos moderno (`"type": "module"` en `package.json`).
-- **Fetch API** — Para realizar peticiones HTTP.
-- **Async/Await** — Manejo de asincronismo.
-- **DummyJSON** — API REST pública de prueba.
 
 ---
 
@@ -119,23 +51,15 @@ pre-entrega-backend/
 
 ---
 
-## 🧠 Conceptos aplicados
+## 🧠 Temas aplicados
 
-- Captura y procesamiento de argumentos con `process.argv` y `.slice()`.
-- Manipulación de strings con `.startsWith()` y `.split()`.
-- Manejo de peticiones HTTP (GET, POST, DELETE) con `fetch`.
-- Programación asíncrona con `async/await` y `try/catch`.
-- Estructura modular y validación de comandos.
-- Manejo de errores.
+- Uso de `process.argv` para capturar comandos desde la terminal.
+- Peticiones HTTP con `fetch` (GET, POST, DELETE).
+- Asincronismo con `async/await` y manejo de errores con `try/catch`.
+- Métodos de arrays y strings (`slice`, `split`, `startsWith`).
 
 ---
 
 ## 👨‍💻 Autor
 
-**Ariel González**
-Pre-Entrega — Curso Backend Node.js — TechLab
-
----
-
-## 📄 Licencia
-
+**Ariel González** — Curso Backend Node.js — TechLab
