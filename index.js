@@ -15,11 +15,21 @@
 // CONFIGURACIÓN GLOBAL
 // ============================================
 
-// 👇 URL oficial (FakeStore )
+// ============================================================
+// ⚠️ IMPORTANTE: Cambio de API
+// ============================================================
+// Para volver a FakeStore (API oficial del curso), hacer 3 cambios:
+//   1) Descomentar la URL de FakeStore y comentar la de DummyJSON
+//   2) En obtenerProductos(): cambiar "return data.products" por "return data"
+//   3) En crearProducto(): cambiar "/products/add" por "/products"
+// ============================================================
+
+// 👇 URL oficial (FakeStore - API del curso)
 // const BASE_URL = 'https://fakestoreapi.com';
 
-// 👇 URL secundaria (DummyJSON - usamos mientras FakeStore está caída)
+// 👇 URL alternativa (DummyJSON - usada porque FakeStore estaba caída)
 const BASE_URL = 'https://dummyjson.com';
+
 
 // ============================================
 // CAPTURA DE ARGUMENTOS DE LA TERMINAL
@@ -33,6 +43,8 @@ async function obtenerProductos() {
   try {
     const response = await fetch(`${BASE_URL}/products`);
     const data = await response.json();
+    // ⚠️ Con DummyJSON: devuelve { products: [...] } → usamos data.products
+    // Con FakeStore:  devuelve [...] directo → usar "return data"
     return data.products; 
   } catch (error) {
     console.error('Error al obtener los productos:', error);
@@ -58,8 +70,8 @@ async function obtenerProductoPorId(id) {
 // ============================================
 async function crearProducto(producto) {
   try {
-    // ⚠️ Con DummyJSON usamos /products/add
-    // Cuando volvamos a FakeStore, cambiamos por /products
+    // ⚠️ Con DummyJSON: endpoint es /products/add
+    // Con FakeStore:  endpoint es /products
     const response = await fetch(`${BASE_URL}/products/add`, {
       method: 'POST',
       headers: {
